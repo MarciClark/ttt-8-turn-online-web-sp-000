@@ -30,26 +30,14 @@ end
 #   user_input.to_i - 1
 # end
 
-# def turn(board)
-#   puts "Please enter 1-9:"
-#   user_input = gets.strip
-#   index = input_to_index(user_input)
-#   if valid_move?(board, index)
-#      move(board, index, character(board))
-#      turn
-#    end
-#    display_board(board)
-# end
-
-def turn
-    puts "Please enter 1-9:"
-    input = gets.strip
-    index = input_to_index(input)
-    char = current_player
-    if valid_move?(index)
-      move(index, char)
-      display_board
-    else
-      turn
-    end
+def turn(board)
+  puts "Please enter 1-9:"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index)
+    display_board(board)
+  else
+    turn(board)
+  end
 end
